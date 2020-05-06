@@ -45,6 +45,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        attempt = (Button) findViewById(R.id.attempt);
+        save = (Button) findViewById(R.id.save);
+        photo = (Button) findViewById(R.id.photo);
+        imageview = (ImageView) findViewById(R.id.imageview);
+        pictureid = (TextView) findViewById(R.id.pictureid);
+        text = (EditText) findViewById(R.id.text);
+        //main = (RelativeLayout) findViewById(R.id.main);
+
         if (ContextCompat.checkSelfPermission(MainActivity.this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,
@@ -56,16 +64,6 @@ public class MainActivity extends AppCompatActivity {
                         new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSIONCode);
             }
         }
-
-        attempt = (Button) findViewById(R.id.attempt);
-        save = (Button) findViewById(R.id.save);
-        photo = (Button) findViewById(R.id.photo);
-        imageview = (ImageView) findViewById(R.id.imageview);
-        pictureid = (TextView) findViewById(R.id.pictureid);
-        text = (EditText) findViewById(R.id.text);
-        //main = (RelativeLayout) findViewById(R.id.main);
-
-        save.setEnabled(false);
 
         photo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
                 text.setText("");
             }
         });
+
+        save.setEnabled(false);
     }
 
     @Override
